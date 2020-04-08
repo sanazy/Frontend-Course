@@ -1,0 +1,430 @@
+*{
+  padding: 0;
+  margin: 0;
+  direction: rtl;
+  text-align: center;
+  font-family: IranianSans;
+}
+
+/***********************  Animation   ***********************/
+
+@keyframes bounce-top {
+  0% {
+    transform: translateY(-25px);
+    animation-timing-function: ease-in;
+  }
+  20% {
+    transform: translateY(-20px);
+    animation-timing-function: ease-in;
+  }
+  40% {
+    transform: translateY(-15px);
+    animation-timing-function: ease-in;
+  }
+  60% {
+    transform: translateY(-10px);
+    animation-timing-function: ease-in;
+  }
+  80% {
+    transform: translateY(-5px);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateY(0px);
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes circle {
+	0% {
+    background: rgba(213,156,34,.2);
+    transform: scale(1.1) rotate(-1deg);
+	}
+	40% {
+    background: rgba(213,34,160,.2);
+    transform: scale(1.1) rotate(1deg);
+	}
+	100% {
+    background: rgba(213,156,34,.2);
+    transform: scale(1.1) rotate(-1deg);
+	}
+}
+
+@font-face {
+  src: url("IranianSans.ttf");
+  font-family: IranianSans;
+}
+
+/******************  Slideshow Container ***********************/
+.slideshow-container {
+  direction: ltr;
+  position: fixed;
+  width: 100%;
+  height: 500px;
+  top: 60px;
+  z-index: -1;
+}
+
+.slideshow-nav {
+  direction: ltr;
+  margin-right: 50px;
+  padding: 30px 0;
+}
+
+.mySlides img{
+  direction: ltr;
+  vertical-align: middle;
+  max-height: 300px;
+  min-height: 300px;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.dot {
+  direction: ltr;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: lightgray;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Next & previous buttons */
+.prev {
+  direction: ltr;
+  cursor: pointer;
+  position: absolute;
+  top: 50px;
+  left: 5%;
+  width: auto;
+  margin: 50px;
+  padding: 20px;
+  color: black;
+  font-weight: bold;
+  font-size: 40px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.next {
+  direction: ltr;
+  cursor: pointer;
+  position: absolute;
+  top: 50px;
+  right: 5%;
+  width: auto;
+  margin: 50px;
+  padding: 20px;
+  color: black;
+  font-weight: bold;
+  font-size: 40px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.prev:hover {
+  color: white;
+  left: 4%;
+}
+
+.next:hover {
+  color: white;
+  right: 4%;
+}
+
+
+/***********************  Top Navbar **************************/
+nav {
+	background-color: rgba(50, 168, 162, 0.5);
+  position: fixed;
+  margin: 0;
+  top: 0;
+  width:100%;
+  z-index: 100;
+}
+
+nav:hover {
+  background-color: rgba(50, 168, 162, 1);
+}
+
+nav ul {
+	padding: 0;
+  margin: 0;
+	list-style: none;
+	position: relative;
+  width:100%;
+}
+
+nav ul li {
+  float: right;
+	display:inline-block;
+}
+
+nav a {
+  background-color: rgba(50, 168, 162, 0.5);
+	display:block;
+	padding:0 10px;
+	color:#FFF;
+	font-size:20px;
+	line-height: 60px;
+	text-decoration:none;
+}
+
+nav a:hover {
+	background-color: rgba(150, 150, 150, 1);
+}
+
+nav ul ul {
+	display: none;
+	position: absolute;
+	top: 60px;
+}
+nav ul li:hover > ul {
+	display:inherit;
+}
+
+nav ul ul li {
+	width:230px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+
+nav ul ul ul li {
+	position: relative;
+	top:-60px;
+	left:230px;
+}
+
+nav ul ul li {
+	border: 1px solid white;
+}
+
+.modalDialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  opacity:0;
+  display: none;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modalDialog:target {
+  opacity:1;
+  display: block;
+  pointer-events: auto;
+  z-index: 500;
+}
+
+.modalDialog > div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5%;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.close {
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover {
+  background: #00d9ff;
+}
+
+
+/***********************  Jump to Down Buttun ***********************/
+#wrapper-jump-down {
+  background: radial-gradient(circle, rgba(165,249,192,1) 0%, rgba(148,187,233,1) 100%);
+  width: 100%;
+  height: 70px;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+}
+
+#jump_down {
+  background-image: url(down1.png);
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+  position: absolute;
+  top: 40%;
+  right: 50%;
+  animation: bounce-top 1.5s both infinite;
+}
+
+#page_top {
+  position: absolute;
+  top: 0;
+}
+
+/*********************** Main Part ***************************/
+
+#wrapper {
+  background-color: rgba(245, 222, 163, 0.4);
+  margin-top:500px;
+  overflow: hidden;
+}
+
+/***********************  Right Menu ***********************/
+.right-menu {
+  background-color: rgba(150, 146, 175, 0.4);
+  border: #999 solid 1px;
+  border-radius: 5px;
+  margin: 2%;
+  width: 10%;
+  float: right;
+  margin-top: 10%;
+  text-decoration: none;
+}
+
+.right-menu a {
+  color: black;
+  display: block;
+  padding: 10%;
+  text-decoration: none;
+  font-size: 1em;
+  border: #999 solid 1px;
+}
+
+.right-menu a:hover {
+  background-color: rgba(105, 119, 155, 0.5);
+  font-size: 1.4em;
+}
+
+/***********************  Main Menu ***********************/
+#wrapper-main {
+  background-color: rgba(93, 58, 58, 0.2);
+  float: right;
+  width: 40%;
+  overflow: auto;
+  margin: 5%;
+  margin-right: 15%;
+  padding: 3%;
+}
+
+.main-text {
+  border: #555 dashed 3px;
+  border-radius: 10px;
+  margin:40% 10%;
+  padding:10% 5%;
+  column-count: 3;
+  background-color: rgba(150, 168, 162, 0.5);
+}
+
+.main-text:hover {
+  transition: all 1s;
+  box-shadow: #555 5px 5px 10px, #555 -5px -5px 10px;
+  animation: circle ease-in-out .75s forwards;
+}
+
+/***********************  Left Menu ***********************/
+
+.left-banner {
+  background-color: rgba(255, 230, 235, 0.7);
+  border: #333 solid 1px;
+  border-radius: 10px;
+  margin:10px 10px 10px 40px;
+  padding:10px 10px 10px 10px;
+  width: 10%;
+  padding: 2%;
+  float: left;
+  overflow: auto;
+  margin-top: 10%;
+}
+
+.left-banner:hover {
+  background-color: rgba(255, 230, 235, 0.3);
+  transform: scale(1.2);
+  transition: all 1s;
+}
+
+/***********************  Jump to top Buttun ***********************/
+#jump_top {
+  background-image: url(up.png);
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  opacity:1;
+  position: fixed;
+  z-index: 100;
+  bottom: 50px;
+  right: 50px;
+}
+
+
+/***********************  Footer ***********************/
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 96%;
+  padding: 2%;
+  background-color: rgba(2, 168, 168, 0.7);
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer:hover {
+  background-color: rgba(2, 168, 168, 1);
+  font-size: 120%;
+  transition: all 1s;
+}
+
+
+/***********************  Tooltip ***********************/
+
+[data-tooltip-text]:hover {
+	position: relative;
+}
+
+[data-tooltip-text]:hover:after {
+	background-color: white;
+
+	box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+	border-radius: 5px;
+
+	color: black;
+	font-size: 12px;
+	content: attr(data-tooltip-text);
+
+  margin-bottom: 10px;
+	top: 130%;
+	left: 0;
+	padding: 7px 12px;
+	position: absolute;
+	width: auto;
+	min-width: 50px;
+	max-width: 300px;
+	word-wrap: break-word;
+	z-index: 9999;
+}
